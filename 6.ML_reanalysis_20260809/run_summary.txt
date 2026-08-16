@@ -1,0 +1,22 @@
+Leakage-controlled 117-workflow UC classifier reanalysis
+Run date: 2026-08-09
+Candidate panel (n=24): DDC, TSPAN7, LCN2, RHOU, SOCS3, ANXA1, SERPINA1, CHST2, FGR, PDE6A, TRPM6, CATSPERB, MOGAT2, SERPING1, KDELR3, ME1, VLDLR, PCK1, MAOA, ADH1C, ADH6, PFKFB3, SLC2A3, PPARG
+Discovery samples: 414 across 4 cohorts
+External samples: 81 across 2 locked cohorts
+Stable genes: PDE6A, PPARG, ADH6, LCN2, VLDLR, SLC2A3, TRPM6, KDELR3
+
+External validation:
+GSE47908: AUC 0.957 (95% CI 0.906-1.000), n=54
+GSE13367: AUC 0.865 (95% CI 0.721-1.000), n=27
+
+Top 10 discovery LOCO workflows:
+all + glmnet_0: mean AUC 0.987, minimum cohort AUC 0.965, SD 0.015
+enet_025 + glmnet_0: mean AUC 0.985, minimum cohort AUC 0.965, SD 0.015
+all + glmnet_0.25: mean AUC 0.985, minimum cohort AUC 0.961, SD 0.017
+all + svm_linear: mean AUC 0.985, minimum cohort AUC 0.968, SD 0.015
+rf_top10 + glmnet_0: mean AUC 0.984, minimum cohort AUC 0.961, SD 0.017
+enet_025 + glmnet_0.25: mean AUC 0.984, minimum cohort AUC 0.962, SD 0.017
+enet_075 + glmnet_0: mean AUC 0.984, minimum cohort AUC 0.951, SD 0.022
+all + rf: mean AUC 0.983, minimum cohort AUC 0.955, SD 0.020
+all + glmnet_0.75: mean AUC 0.983, minimum cohort AUC 0.959, SD 0.017
+enet_025 + svm_linear: mean AUC 0.983, minimum cohort AUC 0.958, SD 0.019

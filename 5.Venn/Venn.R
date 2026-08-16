@@ -1,0 +1,28 @@
+library(VennDiagram)
+setwd("D:\\sci\\UC+glycolysis\\6.Venn")
+# 定义三个基因集（从文档中提取的基因列表）
+WGCNA <- c("ABCA12", "ABCB1", "ABCG2", "ACSF2", "ADM", "AMACR", "ANXA1", "APOL1", "AQP8", "ARNTL2", "BIRC3", "BMP3", "C2", "C2CD4A", "C4BPA", "C4BPB", "CATSPERB", "CD55", "CDH3", "CFB", "CHI3L1", "CLDN1", "CXCL1", "CXCL2", "CXCL3", "DAPP1", "DRAM1", "DUOX2", "DUOXA2", "DUSP4", "ENTPD5", "GBP1", "GBP4", "GNA15", "HAPLN3", "HLA-DMA", "HMGCS2", "IDO1", "IFITM2", "IL1B", "IL1RN", "IRAK3", "KDELR3", "KYNU", "LCN2", "LPCAT1", "LRP8", "LYN", "ME1", "MMP10", "MMP12", "MMP3", "MMP7", "MT1F", "NOS2", "OAS2", "OSMR", "PADI2", "PAQR5", "PCK1", "PDE6A", "PDZK1IP1", "PFKFB3", "PHLDA1", "PHLPP2", "PI3", "PITPNC1", "PLCD1", "REG4", "RHOU", "RUNDC3B", "S100A8", "SAA1", "SAA2", "SAMD9L", "SCUBE2", "SERPINA1", "SERPINA3", "SERPINB5", "SLC19A3", "SLC22A5", "SLC26A2", "SLC6A14", "SLC7A11", "SLC7A5", "SOCS3", "TCN1", "TGM2", "TIMP1", "TMEM63C", "TNIP3A1CF", "ACADS", "ACSL4", "ACVR1C", "ADAMTS9", "ADH1C", "ADH6", "AHCYL2", "ANGPT2", "ANGPTL2", "AQP11", "BASP1", "BGN", "C1R", "C1orf210", "C2orf88", "C4B", "CCDC3", "CD80", "CD93", "CDH17", "CDHR5", "CDKN2B", "CDX2", "CES2", "CHAD", "CHI3L2", "CHN1", "CHP2", "CHRDL2", "CHST11", "CHST15", "CHST2", "CMBL", "CNGA1", "COL4A1", "COL6A3", "CSF2RB", "CTHRC1", "CTLA4", "CTSK", "CYP2B6", "CYP2J2", "CYP4F12", "CYTIP", "DDC", "DENND5A", "DHRS11", "DOCK11", "DOCK8", "DYSF", "EBF1", "EDN3", "EFNA1", "EMP3", "ENPP1", "ENTPD1", "EPHX2", "EXPH5", "FABP1", "FADS1", "FAM129A", "FAM49A", "FAP", "FBN1", "FCRL5", "FERMT2", "FGR", "FMNL3", "FMO4", "FMO5", "FRMD1", "FSTL1", "FXYD3", "FYN", "GALNT12", "GDPD2", "GIPC2", "GMFG", "GPR183", "GUCA2A", "GUCA2B", "GUCY1B3", "HCLS1", "HEG1", "HSD17B2", "ICAM1", "IFI16", "IGFBP5", "IGSF9", "IL33", "IL7R", "INPP5J", "ISX", "ITGA5", "ITGB2", "KCNN3", "KLHL5", "LAMC1", "LAMP3", "LDHD", "LILRB1", "LILRB2", "LRRC19", "LRRC31", "MAOA", "MCAM", "MEP1A", "METTL7B", "MGP", "MIER3", "MMP9", "MOGAT2", "MSN", "MTMR11", "MYO1A", "NAT2", "NNMT", "OCLN", "OLFML2B", "P2RY1", "PBLD", "PCDH17", "PDE4B", "PDPN", "PDZD3", "PECAM1", "PIGZ", "PIM2", "PKIB", "PLA1A", "PLAU", "PLCE1", "PLEKHG6", "PPARG", "PPARGC1A", "PREX1", "PRKCDBP", "PRR15", "PRRX1", "PTP4A3", "PTPRR", "RAC2", "RAPGEFL1", "RBMS1", "RHOJ", "ROBO1", "RPS6KA6", "S1PR1", "SCIN", "SELENBP1", "SELP", "SEMA6A", "SERPINB9", "SERPING1", "SGK2", "SLA", "SLC17A4", "SLC25A34", "SLC2A14", "SLC2A3", "SLC30A10", "SLC39A5", "SLC3A1", "SLC4A4", "SLFN11", "SP140", "ST8SIA4", "STAP2", "SULT1A2", "SYT11", "TCEA3", "TCF4", "THY1", "TINAG", "TM4SF5", "TMEM171", "TMEM37", "TMEM56", "TNC", "TRHDE", "TRPM6", "TRPS1", "TUBAL3", "UGT1A1", "USP2", "VCAM1", "VIL1", "VIM", "VIPR1", "WDR78", "WIPF1", "WSCD1", "YBX2", "TRIB2", "TRIM22", "TSPAN7", "UGT2A3", "VLDLR", "VNN1", "WARS", "ZBP1", "ZC3H12A")
+DEGs<-read.table("./DEGs.txt")
+glycolysis<-read.table("./glycolysis.txt")
+class(DEGs)
+DEGs<-DEGs$V1
+glycolysis<-glycolysis$V1
+pdf(file = "Venn",width = 9,height = 7)
+venn.diagram(
+  x = list(
+    WGCNA = WGCNA,
+    DEGs = DEGs,
+    Glycolysis = glycolysis
+  ),
+  filename = "venn_diagram.png",  # 输出图片文件名
+  col = c("red", "blue", "green"),  # 圆圈边框颜色
+  fill = c("red", "blue", "green"),  # 圆圈填充颜色（透明度默认）
+  alpha = c(0.3, 0.3, 0.3),  # 填充颜色透明度
+  cat.col = c("red", "blue", "green"),  # 类别标签颜色
+  cat.cex = 1.2,  # 类别标签字体大小
+  cex = 1,  # 交集数字字体大小
+  fontfamily = "sans",  # 字体
+  main = "三个基因集的Venn图",  # 图表标题
+  main.cex = 1.5  # 标题字体大小
+)
+dev.off()

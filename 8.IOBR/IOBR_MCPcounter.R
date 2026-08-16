@@ -1,0 +1,6 @@
+mcpcounter<- deconvo_tme(eset = exp,method="mcpcounter",arrays= FALSE)
+colnames(mcpcounter)[-1] <- gsub("_MCPcounter","", colnames(mcpcounter)[-1])
+write.table(mcpcounter,file="mcpcounter.txt",row.names=T,col.names=T,sep="\t",quote=F)
+mcpcounter<-read.table("mcpcounter.txt",row.names = 1, header=T, sep="\t", check.names=F)
+p<-cell_bar_plot(input = mcpcounter[1:414,],features= colnames(mcpcounter)[-1],title="mcpcounter Cell Fraction")
+ggsave("mcpcounter_barplot.pdf",w=10,h=20)

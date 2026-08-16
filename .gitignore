@@ -1,0 +1,97 @@
+# ===== 操作系统 / 编辑器 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ===== R =====
+.Rhistory
+.RData
+.Rdata
+.Rproj.user/
+*.rds
+*.Rds
+*.RData
+
+# ===== 日志 / 缓存 / 工具状态 =====
+*.log
+omnipathr-log/
+.superpowers/
+VennDiagram*.log
+*.log.*
+
+# ===== 生成图片（可由脚本重新生成，不入库）=====
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tiff
+*.tif
+*.bmp
+*.gif
+*.svg
+*.eps
+
+# ===== 办公文档 / 手稿 =====
+*.docx
+*.doc
+*.pptx
+*.xlsx
+*.xls
+
+# ===== 大数据 / 原始测序数据（可从 GEO 等公开数据库下载）=====
+*.tar
+*.tar.gz
+*.gz
+*.zip
+*.h5
+*.h5ad
+*.mtx
+*.bam
+*.sam
+*.fastq
+*.fq
+*.fa
+*.fna
+
+# ===== 原始表达矩阵 / 大规模中间文件（体积过大，不入库）=====
+2.合并数据+去批次/GSE*.csv
+2.合并数据+去批次/Batch_Corrected_Data.csv
+1.数据来源/cis_eQTLs.txt
+1.数据来源/cis_eQTLs_data.txt
+1.数据来源/cis_eQTLs_data_new.txt
+3.差异分析/Batch_Corrected_Data.txt
+3.差异分析/normalize1.txt
+3.差异分析/data_30_columns.txt
+3.差异分析/data_70_columns.txt
+5.WGCNA/normalize.txt
+7.CIBERSORT/normalize.txt
+8.IOBR/normalize.txt
+
+# ===== 中间过程 / 备份子目录（与父目录结果重复）=====
+6.ML_reanalysis_20260809/_figure_redesign_stage/
+6.ML_reanalysis_20260809/figure_backups_before_redesign_20260809/
+
+# ===== 暂存 / 临时 / 无关目录 =====
+delete/
+空转/
+11.单细胞/
+图片/
+图片1200dpi/
+文献/
+outputs/
+qa_render/
+submission_package/
+tmp/
+docs/
+manuscript/
+溃疡性结肠炎-肠道菌群-糖酵解/
+_ms_full_dump.txt
